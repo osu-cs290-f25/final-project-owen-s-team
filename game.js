@@ -14,7 +14,8 @@ firstTarget.addEventListener("click", handleClick)
 setInterval(function() {
 
   if (timeLeft === 0) {
-    // game end modal
+    var gameEndModal = document.getElementById("game-end-modal")
+    gameEndModal.classList.remove("hidden")
     return
   }
 
