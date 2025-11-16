@@ -17,13 +17,23 @@
       <button id="first-target" class="target"></button>
     </div>
 
+    <button id="start-round" class="hidden start-round-button">Click to begin</button>
+
+    <div id = "end-modal-backdrop" class="hidden"></div>
+    
     <div class="game-end-modal hidden" id="game-end-modal">
-      <h1>Your score is </h1>
-      <h2></h2>
-      <button id="play-again" class="end-button">Play Again</button>
-      <button id="settings" class="end-button">Change Settings</button>
+      <div class = "end-modal-container">
+        <h1>Your score is </h1>
+        <h2 id = "final-score"></h2>
+        <button id="play-again" class="end-button">Play Again</button>
+        <button id="settings" class="end-button">Change Settings</button>
+      </div>
     </div>
 
-</script>
+    <div class="game-begin-modal" id="game-begin-modal">
+      <div class= "begin-modal-container">
+        <button id="play-button" class="play-button">Play</button>
+      </div>
+    </div>
   </body>
 </html>
