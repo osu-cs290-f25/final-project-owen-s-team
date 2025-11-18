@@ -1,6 +1,6 @@
 const modalBackdrop = document.getElementById("end-modal-backdrop")
-const counterElement = document.getElementById("counter")
-const timerElement = document.getElementById("timer")
+const counterElement = document.getElementById("counter-number")
+const timerElement = document.getElementById("timer-number")
 
 const startButton = document.getElementById("play-button")
 const playAgainButton = document.getElementById("play-again")
@@ -14,7 +14,7 @@ const mainButton = document.getElementById("main-menu-button")
 
 const minRadius = 30
 const maxRadius = 70
-var timeLeft = 15
+var timeLeft = 15000
 var counter = 0
 let timerInterval = null
 
@@ -62,10 +62,10 @@ startRoundButton.addEventListener("click", function() {
 function startGame() {
   clearInterval(timerInterval)
   counter = 0
-  timeLeft = 15
+  timeLeft = 15000
 
-  counterElement.textContent = "Score: " + counter
-  timerElement.textContent = timeLeft
+  counterElement.textContent = counter
+  timerElement.textContent = (timeLeft / 1000).toFixed(1)
 
   //Removes the target remaining on screen from last game
   document.querySelectorAll(".target").forEach(t => t.remove())
@@ -74,16 +74,18 @@ function startGame() {
 }
 
 function startTimer() {
+  const tickRate = 100; // update every 100ms
+
   timerInterval = setInterval(function() {
 
-    if (timeLeft === 0) {
+    if (timeLeft <= 0) {
       endGame()
       return
     }
 
-    timeLeft--
-    timerElement.textContent = timeLeft
-  }, 1000); 
+    timeLeft -= tickRate
+    timerElement.textContent = (timeLeft / 1000).toFixed(1)
+  }, tickRate)
 }
 
 function endGame() {
@@ -97,7 +99,7 @@ function endGame() {
 function handleClick(event) {
   event.currentTarget.remove()
   counter++
-  counterElement.textContent = "Score: " + counter
+  counterElement.textContent = counter
   generateRandomTarget()
 }
 
