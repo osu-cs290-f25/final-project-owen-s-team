@@ -1,5 +1,5 @@
 html, body {
-  background-color: #0e1b27;
+  background-color: #2b2b2b;
   margin: 0;
   padding: 0;
   display: flex;
@@ -12,8 +12,7 @@ html, body {
 }
 
 .header {
-  /* background-color: #0e1b27; */
-  background-color: #0e1b27;
+  background-color: #2b2b2b;
   height: 100px;
   flex-shrink: 0;
   display: flex;
@@ -22,17 +21,17 @@ html, body {
 
 #timer {
   margin: 0; 
-  color: white;
+  color: #f6e6c8;
   margin-left: 30px;
   margin-right: 20px;
 }
 
 #counter {
-  color: white;
+  color: #f6e6c8;
 }
 
 .header-number {
-  color: #d44729;
+  color: #f66e0d;
   font-size: 27px;
   margin-left: 10px;
   vertical-align: -2px;
@@ -40,7 +39,7 @@ html, body {
 
 #game-window {
   flex-grow: 1;
-  background-color: #0f1f2c;
+  background-color: #313131;
   margin: 30px;
   margin-top: 0px;
   position: relative;
@@ -74,6 +73,7 @@ html, body {
   margin: 10px;
   border-radius: 50%;
   border: none;
+  background-color: #f6e6c8;
 }
 
 .hidden {
