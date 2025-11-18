@@ -25,7 +25,7 @@
     <div class="game-end-modal hidden" id="game-end-modal">
       <div class = "end-modal-container">
         <h1>Your score is </h1>
-        <h2 id = "final-score"></h2>
+        <h2 id = "final-score" class="final-score"></h2>
         <button id="play-again" class="end-button">Play Again</button>
         <button id="settings" class="end-button">Change Settings</button>
       </div>
@@ -34,11 +34,28 @@
     
     <div class="game-begin-modal" id="game-begin-modal">
       <div class= "begin-modal-container">
-        <h1 id="title-header"> Aim Trainer</h1>
+        <h1 id="title-header">Aim Trainer</h1>
         <button id="play-button" class="play-button">Play</button>
         <button id="gear" class="fa-solid fa-gear"></button>
         <div id="scoreboard" class="modal-scoreboard">
           <h1 id="scoreboard-header"> ScoreBoard</h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="hidden settings-modal" id="settings-modal">
+      <div class="settings-modal-container">
+        <h1 id="title-header">Settings</h1>
+        <button class="main-menu-button" id="main-menu-button">Main Menu</button>
+        <div class="settings-list-container">
+          <label class="difficulty-input-label" for="filter-difficulty">Difficulty</label>
+          <div class="difficulty-input-container">
+            <select class="difficulty-input" id="difficulty-input" name="filter-difficulty">
+              <option>Easy</option>
+              <option>Medium</option>
+              <option>Hard</option>
+            </select>
+          </div>
         </div>
       </div>
     </div>

@@ -9,6 +9,9 @@ const startRoundButton = document.getElementById("start-round")
 
 const gameWindow = document.getElementById("game-window")
 
+const gearButton = document.getElementById("gear")
+const mainButton = document.getElementById("main-menu-button")
+
 const minRadius = 30
 const maxRadius = 70
 var timeLeft = 15
@@ -35,6 +38,16 @@ playAgainButton.addEventListener("click", function() {
 
 settingsButton.addEventListener("click", function() {
   document.getElementById("game-end-modal").classList.add("hidden")
+  document.getElementById("settings-modal").classList.remove("hidden")
+})
+
+gearButton.addEventListener("click", function() {
+  document.getElementById("game-begin-modal").classList.add("hidden")
+  document.getElementById("settings-modal").classList.remove("hidden")
+})
+
+mainButton.addEventListener("click", function() {
+  document.getElementById("settings-modal").classList.add("hidden")
   document.getElementById("game-begin-modal").classList.remove("hidden")
 })
 
@@ -43,6 +56,8 @@ startRoundButton.addEventListener("click", function() {
   startTimer()
   generateRandomTarget()
 })
+
+
 
 function startGame() {
   clearInterval(timerInterval)
