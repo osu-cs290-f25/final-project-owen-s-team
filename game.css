@@ -144,13 +144,22 @@ border-radius: 12px;
 
 #title-header{
   border-style:solid;
+  position: absolute;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  top:5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height:70px;
+  width:400px;
   font-size:40px;
   border-radius: 10px;
 }
 
 #scoreboard{
   position: fixed;      
-  top: 55%;             
+  top: 50%;             
   left: 50%;            
   transform: translate(-50%, -50%); 
   width: 400px;         
@@ -164,7 +173,7 @@ border-radius: 12px;
   height:70px;
   font-size:50px;
   position: relative;
-  top:425px;
+  top: 550px;
   margin-top: 5px;
 }
 
@@ -174,12 +183,12 @@ border-radius: 12px;
 
 #gear{
   position:absolute;
-  bottom:60px;
-  right:50px;
+  bottom:50px;
+  right:60px;
   background-color: white;
-  width:25px;
-  height:25px;
-  transform: scale(2);
+  width:30px;
+  height:30px;
+  transform: scale(2.5);
   border-radius: 5px;
 }
 
@@ -188,9 +197,9 @@ border-radius: 12px;
   color:white;
   cursor: pointer;
 }
-
+/* */
 .settings-modal{
-   height: 75%;
+  height: 75%;
   width: 40%;
   top: 0;
   bottom: 0;
@@ -212,17 +221,36 @@ border-radius: 12px;
 }
 
 .main-menu-button{
-   background-color: rgb(1, 1, 97);
+  background-color: rgb(1, 1, 97);
   color: white;
   border-radius: 5px;
   padding: 5px 3px 5px 3px;
-  width: 200px;
-  height: 50px;
+  width: 300px;
+  height: 75px;
   font-size: 15px;
   font-family: Arial, Helvetica, sans-serif;
   margin-bottom: 5px;
+  position:absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .main-menu-button:hover{
   cursor: pointer;
 }
+
+.difficulty-input-container{
+  display:flex;
+  position:absolute;
+  width:200px;
+  left:50%;
+  transform: translate(-50%, -50%);
+  top:35%;
+}
+
+.difficulty-input{
+  position:relative;
+  left:10px;
+}
+
