@@ -18,6 +18,8 @@ var timeLeft = 15000
 var counter = 0
 let timerInterval = null
 
+var gameRunning = false
+
 timerElement.textContent = (timeLeft / 1000).toFixed(1)
 counterElement.textContent = counter
 
@@ -41,9 +43,11 @@ settingsButton.addEventListener("click", function() {
 })
 
 gearButton.addEventListener("click", function() {
-  document.getElementById("game-begin-modal").classList.add("hidden")
-  document.getElementById("settings-modal").classList.remove("hidden")
-  modalBackdrop.classList.toggle("hidden")
+  if (!gameRunning) {
+    document.getElementById("game-begin-modal").classList.add("hidden")
+    document.getElementById("settings-modal").classList.remove("hidden")
+    modalBackdrop.classList.toggle("hidden")
+  }
 })
 
 mainButton.addEventListener("click", function() {
@@ -52,6 +56,7 @@ mainButton.addEventListener("click", function() {
 })
 
 startRoundButton.addEventListener("click", function() {
+  gameRunning = true
   startRoundButton.classList.add("hidden")
   startTimer()
   generateRandomTarget()
@@ -90,6 +95,8 @@ function startTimer() {
 
 function endGame() {
   clearInterval(timerInterval)
+
+  gameRunning = false
 
   document.getElementById("final-score").textContent = counter
   modalBackdrop.classList.remove("hidden")
