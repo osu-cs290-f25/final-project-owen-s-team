@@ -19,7 +19,7 @@ var counter = 0
 let timerInterval = null
 
 timerElement.textContent = (timeLeft / 1000).toFixed(1)
-counterElement.textContent = "Score: " + counter
+counterElement.textContent = counter
 
 startButton.addEventListener("click", function () {
   document.getElementById("game-begin-modal").classList.add("hidden")
