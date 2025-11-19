@@ -11,6 +11,14 @@ html, body {
   font-weight: 400;
 }
 
+button {
+  font-family: "Roboto Mono", monospace;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
 .header {
   background-color: #2b2b2b;
   height: 100px;
@@ -30,6 +38,19 @@ html, body {
   color: #f6e6c8;
 }
 
+#gear-icon {
+  margin-left: auto;
+  margin-right: 30px;
+  background-color: #2b2b2b;
+  border: none;
+  color: #f6e6c8;
+  transform: scale(2)
+}
+
+#gear-icon:hover {
+  color: #F88B3D;
+}
+
 .header-number {
   color: #f66e0d;
   font-size: 27px;
@@ -45,16 +66,6 @@ html, body {
   position: relative;
   border-radius: 12px;
   overflow: hidden;
-}
-
-#first-target {
-  width: 50px;
-  height: 50px;
-
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 #end-modal-backdrop {
@@ -119,13 +130,9 @@ html, body {
   border-style: initial;
   border-color: rgb(44, 44, 255);
   font-size: 10px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto Mono", monospace;
   padding: 5px 10px 5px 10px;
   z-index: 1010;
-}
-
-.start-round-button:hover{
-  cursor: pointer;
 }
 
 .end-button{
@@ -139,24 +146,28 @@ html, body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.end-button:hover{
-  cursor: pointer;
-
-}
-
 .final-score{
   font-size: 50px;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 .start-round-button {
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-padding: 20px 40px;
-font-size: 24px;
-border-radius: 12px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px 40px;
+  color: #f6e6c8;
+  background-color: #313131;
+  padding: 10px 15px;
+  font-size: 25px;
+  border: #f6e6c8 5px solid;
+}
+
+.start-round-button:hover{
+  border: #F88B3D 5px solid;
+  color: #f66e0d;
+  background-color: #583D2A;
 }
 
 /* Everthing Under is what I've done*/
@@ -164,10 +175,10 @@ border-radius: 12px;
 #title-header{
   border-style:solid;
   position: absolute;
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
-  top:5%;
+  top: 5%;
   left: 50%;
   transform: translate(-50%, -50%);
   height:70px;
@@ -216,7 +227,7 @@ border-radius: 12px;
   color:white;
   cursor: pointer;
 }
-/* */
+
 .settings-modal{
   height: 75%;
   width: 40%;
@@ -234,7 +245,6 @@ border-radius: 12px;
   border-style: initial;
   border-color: rgb(44, 44, 255);
   font-size: 30px;
-  font-family: Arial, Helvetica, sans-serif;
   padding: 5px 10px 5px 10px;
   z-index: 1010;
 }
@@ -249,7 +259,7 @@ border-radius: 12px;
   font-size: 15px;
   font-family: Arial, Helvetica, sans-serif;
   margin-bottom: 5px;
-  position:absolute;
+  position: absolute;
   top: 80%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -262,10 +272,10 @@ border-radius: 12px;
 .difficulty-input-container{
   display:flex;
   position:absolute;
-  width:200px;
+  width: 200px;
   left:50%;
   transform: translate(-50%, -50%);
-  top:35%;
+  top: 35%;
 }
 
 .difficulty-input{

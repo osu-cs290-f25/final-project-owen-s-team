@@ -19,40 +19,36 @@
     <div class="header">
       <h2 id="timer">Timer:<span class="header-number" id="timer-number">30</span></h2>
       <h2 id="counter">Score:<span class="header-number" id="counter-number">30</span></h2>
+      <button id="gear-icon"><i class="fa-solid fa-gear"></i></button>
     </div>
     <div id="game-window">
-      <button id="first-target" class="target"></button>
+      <button id="start-round" class="start-round-button">Click to begin</button>
     </div>
 
-    <button id="start-round" class="hidden start-round-button">Click to begin</button>
-
-    <div id = "end-modal-backdrop" class="hidden"></div>
+    <div id="end-modal-backdrop" class="hidden"></div>
     
     <div class="game-end-modal hidden" id="game-end-modal">
-      <div class = "end-modal-container">
+      <div class="end-modal-container">
         <h1>Your score is </h1>
         <h2 id = "final-score" class="final-score"></h2>
         <button id="play-again" class="end-button">Play Again</button>
         <button id="settings" class="end-button">Change Settings</button>
       </div>
     </div>
-
     
-    <div class="game-begin-modal" id="game-begin-modal">
+    <div class="game-begin-modal hidden" id="game-begin-modal">
       <div class= "begin-modal-container">
         <h1 id="title-header">Aim Trainer</h1>
         <button id="play-button" class="play-button">Play</button>
-        <button id="gear" class="fa-solid fa-gear"></button>
         <div id="scoreboard" class="modal-scoreboard">
           <h1 id="scoreboard-header"> ScoreBoard</h1>
         </div>
       </div>
     </div>
 
-    <div class="hidden settings-modal" id="settings-modal">
+    <div class="settings-modal hidden" id="settings-modal">
       <div class="settings-modal-container">
         <h1 id="title-header">Settings</h1>
-        <button class="main-menu-button" id="main-menu-button">Main Menu</button>
         <div class="settings-list-container">
           <div class="difficulty-input-container">
             <label class="difficulty-input-label" id="difficulty" for="filter-difficulty">Difficulty:</label>
@@ -63,7 +59,9 @@
             </select>
           </div>
         </div>
+        <button class="main-menu-button" id="main-menu-button">Main Menu</button>
       </div>
     </div>
+
   </body>
 </html>

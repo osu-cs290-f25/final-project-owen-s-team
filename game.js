@@ -9,7 +9,7 @@ const startRoundButton = document.getElementById("start-round")
 
 const gameWindow = document.getElementById("game-window")
 
-const gearButton = document.getElementById("gear")
+const gearButton = document.getElementById("gear-icon")
 const mainButton = document.getElementById("main-menu-button")
 
 const minRadius = 30
@@ -18,8 +18,7 @@ var timeLeft = 15000
 var counter = 0
 let timerInterval = null
 
-modalBackdrop.classList.remove("hidden")
-timerElement.textContent = timeLeft
+timerElement.textContent = (timeLeft / 1000).toFixed(1)
 counterElement.textContent = "Score: " + counter
 
 startButton.addEventListener("click", function () {
@@ -44,6 +43,7 @@ settingsButton.addEventListener("click", function() {
 gearButton.addEventListener("click", function() {
   document.getElementById("game-begin-modal").classList.add("hidden")
   document.getElementById("settings-modal").classList.remove("hidden")
+  modalBackdrop.classList.toggle("hidden")
 })
 
 mainButton.addEventListener("click", function() {
