@@ -201,42 +201,40 @@ button:hover {
   border-radius: 8px;
 }
 
-#play-button{
-  width:300px;
-  height:70px;
+.play-button{
   font-size:40px;
-  position: relative;
-  top: 580px;
-  margin-top: 5px;
-  border-width: 5px;
   border-color:antiquewhite;
   background-color: #2b2b2b;
   color:#f6e6c8;
+  border-width: 5px;
+  border-radius: 5px;
+
 }
 
-#play-button:hover{
+.play-button:hover{
   cursor: pointer;
   background-color:#F88B3D;
   color:#f66e0d;
   background-color: #543825;
 }
 
-#gear{
-  position:absolute;
-  bottom:50px;
-  right:60px;
-  background-color: white;
-  width:30px;
-  height:30px;
-  transform: scale(2.5);
-  border-radius: 5px;
+#play-button{
+  width:300px;
+  height:70px;
+  position: relative;
+  top: 580px;
+  margin-top: 5px;
 }
 
-#gear:hover{
-  background-color: black;
-  color:white;
-  cursor: pointer;
+#play{
+  position:relative;
+  width:250px;
+  height:75px;
+  top: 525px;
+  left: 150px;
+  
 }
+
 
 .settings-modal{
   height: 75%;
@@ -266,13 +264,13 @@ button:hover {
   border-width: 5px;
   border-radius: 5px;
   padding: 5px 3px 5px 3px;
-  width: 300px;
+  width: 250px;
   height: 75px;
   font-size: 15px;
   margin-bottom: 5px;
   position: absolute;
   top: 80%;
-  left: 50%;
+  left: 30%;
   transform: translate(-50%, -50%);
   font-size: 25px;
 }
