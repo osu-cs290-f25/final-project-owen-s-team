@@ -135,13 +135,11 @@ button:hover {
   right: 0;
   margin: auto;
   text-align: center;
-  background-color: white;
-  color: navy;
+  background-color:#313131;
   position: fixed;
   border-radius: 10px;
   border-width: 3px;
   border-style: initial;
-  border-color: rgb(44, 44, 255);
   font-size: 10px;
   padding: 5px 10px 5px 10px;
   z-index: 1010;
@@ -171,7 +169,7 @@ button:hover {
   background-color: #583D2A;
 }
 
-/* Everthing Under is what I've done*/
+
 
 #title-header{
   border-style:solid;
@@ -186,15 +184,19 @@ button:hover {
   width:400px;
   font-size:40px;
   border-radius: 10px;
+  border-color:#2b2b2b;
+  background-color:#2b2b2b;
+  color:#f66e0d;
+
 }
 
 #scoreboard{
   position: fixed;      
-  top: 50%;             
+  top: 48%;             
   left: 50%;            
   transform: translate(-50%, -50%); 
   width: 400px;         
-  height: 400px;    
+  height: 425px;    
   border-style:solid;    
   border-radius: 8px;
 }
@@ -202,14 +204,21 @@ button:hover {
 #play-button{
   width:300px;
   height:70px;
-  font-size:50px;
+  font-size:40px;
   position: relative;
-  top: 550px;
+  top: 580px;
   margin-top: 5px;
+  border-width: 5px;
+  border-color:antiquewhite;
+  background-color: #2b2b2b;
+  color:#f6e6c8;
 }
 
 #play-button:hover{
   cursor: pointer;
+  background-color:#F88B3D;
+  color:#f66e0d;
+  background-color: #543825;
 }
 
 #gear{
@@ -238,8 +247,8 @@ button:hover {
   right: 0;
   margin: auto;
   text-align: center;
-  background-color: white;
-  color: navy;
+  background-color:#313131;
+  color:#f66e0d;
   position: fixed;
   border-radius: 10px;
   border-width: 3px;
@@ -251,8 +260,10 @@ button:hover {
 }
 
 .main-menu-button{
-  background-color: rgb(1, 1, 97);
-  color: white;
+  background-color:#2b2b2b;
+  color:antiquewhite;
+  border-color:antiquewhite;
+  border-width: 5px;
   border-radius: 5px;
   padding: 5px 3px 5px 3px;
   width: 300px;
@@ -263,22 +274,29 @@ button:hover {
   top: 80%;
   left: 50%;
   transform: translate(-50%, -50%);
+  font-size: 25px;
 }
 
 .main-menu-button:hover{
   cursor: pointer;
+  background-color:#F88B3D;
+  color:#f66e0d;
+  background-color: #543825;
 }
 
 .difficulty-input-container{
   display:flex;
   position:absolute;
-  width: 200px;
+  width: 350px;
   left:50%;
   transform: translate(-50%, -50%);
   top: 35%;
+  justify-content: center;
+  border-radius: 10px;
 }
 
 .difficulty-input{
+  width:100px;
   position:relative;
   left:10px;
 }
