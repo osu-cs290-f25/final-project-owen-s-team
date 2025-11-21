@@ -39,9 +39,31 @@
     <div class="game-begin-modal hidden" id="game-begin-modal">
       <div class= "begin-modal-container">
         <h1 id="title-header">ScoreBoard</h1>
-        <button id="play-button" class="play-button">Play</button>
-        <div id="scoreboard" class="modal-scoreboard">
+        <button id="play-button" class="play-button">X</button>
+        <div id="scoreboard" class="modal-scoreboard"></div>
+        <div class= "Personal-container">
+          <button id="Personal" class="Personal-button">Personal</button>
         </div>
+        <div class= "Global-container">
+          <button id="Global" class="Global-button">Global</button>
+        </div>
+        <div class="timer-container">
+            <label class="time-change" id="timer" for="timer-filter">Time:</label>
+            <select class="timer-input" id="timer-input" name="filter-time">
+              <option>10</option>
+              <option>20</option>
+              <option>30</option>
+            </select>
+        </div>
+        <div class="difficulty-input-container">
+            <label class="difficulty-input-label" id="difficulty-scoreboard" for="filter-difficulty">Difficulty:</label>
+            <select class="difficulty-input" id="scoreboard-difficulty" name="filter-difficulty">
+              <option>Easy</option>
+              <option>Medium</option>
+              <option>Hard</option>
+            </select>
+        </div>
+        <button class="Apply-filter" id="Filter">Filter</button>
       </div>
     </div>
 
@@ -56,10 +78,17 @@
               <option>Medium</option>
               <option>Hard</option>
             </select>
+          <div class="timer-container-setting">
+            <label class="time-change" id="timer-setting" for="timer-filter">Time:</label>
+            <select class="timer-input" id="setting-timer" name="filter-time">
+              <option>10</option>
+              <option>20</option>
+              <option>30</option>
+            </select>
           </div>
         </div>
-        <button class="main-menu-button" id="main-menu-button">Main Menu</button>
-        <button id="play" class="play-button">Play</button>
+        <button class="main-menu-button" id="main-menu-button">Scoreboard</button>
+        <button id="play" class="play-button">Apply Settings</button>
       </div>
     </div>
 
