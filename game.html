@@ -17,10 +17,17 @@
   </head>
   <body>
     <div class="header">
+
       <h2 id="timer">Timer:<span class="header-number" id="timer-number">30</span></h2>
       <h2 id="counter">Score:<span class="header-number" id="counter-number">30</span></h2>
-      <button id="gear-icon"><i class="fa-solid fa-gear"></i></button>
+
+      <div id="right-header-items">
+        <button id="end-game-button">End Game</button>
+        <button id="gear-icon"><i class="fa-solid fa-gear"></i></button>
+      </div>
+
     </div>
+
     <div id="game-window">
       <button id="start-round" class="start-round-button">Click to begin</button>
     </div>
@@ -48,7 +55,7 @@
           <button id="Global" class="Global-button">Global</button>
         </div>
         <div class="timer-container">
-            <label class="time-change" id="timer" for="timer-filter">Time:</label>
+            <label class="time-change" id="filter-timer" for="timer-filter">Time:</label>
             <select class="timer-input" id="timer-input" name="filter-time">
               <option>10</option>
               <option>20</option>

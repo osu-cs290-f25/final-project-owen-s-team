@@ -6,6 +6,7 @@ const startButton = document.getElementById("play-button")
 const playAgainButton = document.getElementById("play-again")
 const settingsButton = document.getElementById("settings")
 const startRoundButton = document.getElementById("start-round")
+const endGameButton = document.getElementById("end-game-button")
 
 const gameWindow = document.getElementById("game-window")
 
@@ -35,6 +36,10 @@ playAgainButton.addEventListener("click", function() {
   modalBackdrop.classList.add("hidden")
 
   startGame()
+})
+
+endGameButton.addEventListener("click", function() {
+  timeLeft = 0;
 })
 
 settingsButton.addEventListener("click", function() {
