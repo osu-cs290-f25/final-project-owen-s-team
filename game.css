@@ -180,8 +180,8 @@ button:hover {
   top: 5%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height:70px;
-  width:400px;
+  height:10%;
+  width:80%;
   font-size:40px;
   border-radius: 10px;
   border-color:#2b2b2b;
@@ -191,52 +191,50 @@ button:hover {
 }
 
 #scoreboard{
-  position: fixed;      
-  top: 48%;             
+  position: absolute;
+  top: 70%;             
   left: 50%;            
   transform: translate(-50%, -50%); 
-  width: 400px;         
-  height: 425px;    
+  width:90%;
+  height: 45%;
   border-style:solid;    
   border-radius: 8px;
 }
 
-#play-button{
-  width:300px;
-  height:70px;
-  font-size:40px;
-  position: relative;
-  top: 580px;
-  margin-top: 5px;
-  border-width: 5px;
+.play-button{
+  font-size:90%;
   border-color:antiquewhite;
   background-color: #2b2b2b;
   color:#f6e6c8;
+  border-width: 5px;
+  border-radius: 5px;
+
 }
 
-#play-button:hover{
+.play-button:hover{
   cursor: pointer;
   background-color:#F88B3D;
   color:#f66e0d;
   background-color: #543825;
 }
 
-#gear{
-  position:absolute;
-  bottom:50px;
-  right:60px;
-  background-color: white;
-  width:30px;
-  height:30px;
-  transform: scale(2.5);
-  border-radius: 5px;
+#play-button{
+  width:10%;
+  height:10%;
+  position: absolute;
+  top:4%;
+  right:4%;
 }
 
-#gear:hover{
-  background-color: black;
-  color:white;
-  cursor: pointer;
+#play{
+  position:absolute;
+  width:33%;
+  height:10%;
+  bottom:15%;
+  right:10%;
+  
 }
+
 
 .settings-modal{
   height: 75%;
@@ -266,13 +264,13 @@ button:hover {
   border-width: 5px;
   border-radius: 5px;
   padding: 5px 3px 5px 3px;
-  width: 300px;
+  width: 250px;
   height: 75px;
   font-size: 15px;
   margin-bottom: 5px;
   position: absolute;
   top: 80%;
-  left: 50%;
+  left: 30%;
   transform: translate(-50%, -50%);
   font-size: 25px;
 }
@@ -287,8 +285,9 @@ button:hover {
 .difficulty-input-container{
   display:flex;
   position:absolute;
-  width: 350px;
-  left:50%;
+  width: 75%;
+  left:30%;
+
   transform: translate(-50%, -50%);
   top: 35%;
   justify-content: center;
@@ -301,3 +300,51 @@ button:hover {
   left:10px;
 }
 
+#difficulty-scoreboard{
+  font-size: 150%;
+  color:#f66e0d;
+}
+
+#scoreboard-difficulty{
+  border-style:solid;
+}
+
+.Personal-container{
+  position:absolute;
+  left:25%;
+  top: 25%;
+}
+
+.Global-container{
+  position:absolute;
+  left: 60%;
+  top: 25%;
+
+}
+
+.timer-container{
+  display:flex;
+  position:absolute;
+  width: 25%;
+  top:33%;
+  left:55%;
+}
+
+#timer{
+  font-size:200%;
+}
+
+#Filter{
+  position:absolute;
+  width:25%;
+  height:5%;
+  top:40%;
+  left:37%;
+}
+
+.timer-container-setting{
+  display:flex;
+  position:absolute;
+  width: 25%;
+  top:150%;
+}
