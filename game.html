@@ -22,7 +22,7 @@
       <h2 id="counter">Score:<span class="header-number" id="counter-number">30</span></h2>
 
       <div id="right-header-items">
-        <button id="end-game-button">End Game</button>
+        <button id="end-game-button" class="styled-button">End Game</button>
         <button id="gear-icon"><i class="fa-solid fa-gear"></i></button>
       </div>
 
@@ -38,21 +38,36 @@
       <div class="end-modal-container">
         <h1>Your score is </h1>
         <h2 id = "final-score" class="final-score"></h2>
-        <button id="play-again" class="end-button">Play Again</button>
-        <button id="settings" class="end-button">Change Settings</button>
+        <button id="save-score-button" class="styled-button">Save Score</button>
+        <div id="game-end-modal-middle-buttons">
+          <button id="play-again" class="end-button styled-button">Play Again</button>
+          <button id="settings" class="end-button styled-button">Change Settings</button>
+        </div>
+        <button id="view-scoreboard-button" class="styled-button">View Scoreboard</button>
+      </div>
+    </div>
+
+    <div id="save-score-modal-backdrop" class="hidden"></div>
+
+    <div class="hidden" id="save-score-modal">
+      <label for="username-input">Enter Username:</label>
+      <input type="text" id="username-input" name="username-input">
+      <div class="save-score-buttons">
+        <button id="submit-save-score" class="styled-button">Save</button>
+        <button id="cancel-save-score" class="styled-button">Cancel</button>
       </div>
     </div>
     
-    <div class="game-begin-modal hidden" id="game-begin-modal">
+    <div class="scoreboard-modal hidden" id="scoreboard-modal">
       <div class= "begin-modal-container">
         <h1 id="title-header">ScoreBoard</h1>
-        <button id="play-button" class="play-button">X</button>
+        <button id="close-scoreboard-button" class="play-button">X</button>
         <div id="scoreboard" class="modal-scoreboard"></div>
         <div class= "Personal-container">
-          <button id="Personal" class="Personal-button">Personal</button>
+          <button id="Personal" class="Personal-button styled-button">Personal</button>
         </div>
         <div class= "Global-container">
-          <button id="Global" class="Global-button">Global</button>
+          <button id="Global" class="Global-button styled-button">Global</button>
         </div>
         <div class="timer-container">
             <label class="time-change" id="filter-timer" for="timer-filter">Time:</label>
@@ -70,7 +85,7 @@
               <option>Hard</option>
             </select>
         </div>
-        <button class="Apply-filter" id="Filter">Filter</button>
+        <button class="Apply-filter styled-button" id="Filter">Filter</button>
       </div>
     </div>
 
@@ -94,8 +109,7 @@
             </select>
           </div>
         </div>
-        <button class="main-menu-button" id="main-menu-button">Scoreboard</button>
-        <button id="play" class="play-button">Apply Settings</button>
+        <button id="play" class="play-button styled-button">Apply Settings</button>
       </div>
     </div>
 

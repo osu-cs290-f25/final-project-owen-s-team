@@ -14,7 +14,18 @@ html, body {
   font-family: "Roboto Mono", monospace;
 }
 
-button:hover {
+.styled-button {
+  color: #f6e6c8;
+  background-color: #2b2b2b;
+  border: 3px solid #f6e6c8;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.styled-button:hover {
+  border-color: #F88B3D;
+  color: #f66e0d;
+  background-color: #543825;
   cursor: pointer;
 }
 
@@ -43,18 +54,13 @@ button:hover {
 }
 
 #end-game-button {
-  color: #f6e6c8;
-  background-color: #2b2b2b;
   padding: 5px 10px;
   font-size: 18px;
-  border: #f6e6c8 3px solid;
+  border-width: 3px;
 }
 
 #end-game-button:hover {
-  cursor: pointer;
-  border: #F88B3D 3px solid;
-  color: #f66e0d;
-  background-color: #543825;
+  border-width: 3px;
 }
 
 #gear-icon {
@@ -118,35 +124,64 @@ button:hover {
   text-align: center;
   background-color: #2b2b2b;
   color: #f6e6c8;
-  /* border: #f6e6c8 solid 2px; */
   border-radius: 5px;
   font-size: 20px;
   padding: 30px;
   z-index: 1010;
 }
 
+.end-modal-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .end-modal-container > h1 {
   margin: 0;
 }
 
-.end-modal-container > button {
-  color: #f6e6c8;
-  background-color: #2b2b2b;
-  padding: 10px 15px;
+.end-modal-container button {
   font-size: 20px;
-  border: #f6e6c8 3px solid;
-
-  margin: 0; 
+  border-width: 3px;
+  margin: 5px; 
 }
 
-.end-modal-container > button:hover {
-  cursor: pointer;
-  border: #F88B3D 3px solid;
-  color: #f66e0d;
-  background-color: #543825;
+#game-end-modal-middle-buttons {
+  flex-direction: row;
 }
 
-.game-begin-modal {
+#game-end-modal-middle-buttons > button {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+#save-score-modal-backdrop {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: 1015;
+}
+
+#save-score-modal {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #2b2b2b;
+  color: #f6e6c8;
+  border-radius: 5px;
+  font-size: 20px;
+  padding: 20px;
+  z-index: 1020;
+}
+
+.save-score-buttons {
+  display: block;
+  margin: 20px auto 0;
+}
+
+.scoreboard-modal {
   height: 75%;
   width: 40%;
   top: 0;
@@ -175,7 +210,6 @@ button:hover {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 20px 40px;
   color: #f6e6c8;
   background-color: #313131;
   padding: 10px 15px;
@@ -188,8 +222,6 @@ button:hover {
   color: #f66e0d;
   background-color: #583D2A;
 }
-
-
 
 #title-header{
   border-style:solid;
@@ -207,7 +239,6 @@ button:hover {
   border-color:#2b2b2b;
   background-color:#2b2b2b;
   color:#f66e0d;
-
 }
 
 #scoreboard{
@@ -221,24 +252,7 @@ button:hover {
   border-radius: 8px;
 }
 
-.play-button{
-  font-size:90%;
-  border-color:antiquewhite;
-  background-color: #2b2b2b;
-  color:#f6e6c8;
-  border-width: 5px;
-  border-radius: 5px;
-
-}
-
-.play-button:hover{
-  cursor: pointer;
-  background-color:#F88B3D;
-  color:#f66e0d;
-  background-color: #543825;
-}
-
-#play-button{
+#close-scoreboard-button{
   width:10%;
   height:10%;
   position: absolute;
@@ -252,9 +266,7 @@ button:hover {
   height:10%;
   bottom:15%;
   right:10%;
-  
 }
-
 
 .settings-modal{
   height: 75%;
@@ -275,31 +287,6 @@ button:hover {
   font-size: 30px;
   padding: 5px 10px 5px 10px;
   z-index: 1010;
-}
-
-.main-menu-button{
-  background-color:#2b2b2b;
-  color:antiquewhite;
-  border-color:antiquewhite;
-  border-width: 5px;
-  border-radius: 5px;
-  padding: 5px 3px 5px 3px;
-  width: 250px;
-  height: 75px;
-  font-size: 15px;
-  margin-bottom: 5px;
-  position: absolute;
-  top: 80%;
-  left: 30%;
-  transform: translate(-50%, -50%);
-  font-size: 25px;
-}
-
-.main-menu-button:hover{
-  cursor: pointer;
-  background-color:#F88B3D;
-  color:#f66e0d;
-  background-color: #543825;
 }
 
 .difficulty-input-container{
@@ -356,8 +343,6 @@ button:hover {
 
 #Filter{
   position:absolute;
-  width:25%;
-  height:5%;
   top:40%;
   left:37%;
 }

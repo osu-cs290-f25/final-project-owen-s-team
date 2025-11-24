@@ -2,16 +2,21 @@ const modalBackdrop = document.getElementById("end-modal-backdrop")
 const counterElement = document.getElementById("counter-number")
 const timerElement = document.getElementById("timer-number")
 
-const startButton = document.getElementById("play-button")
+const closeScoreboardButton = document.getElementById("close-scoreboard-button")
 const playAgainButton = document.getElementById("play-again")
 const settingsButton = document.getElementById("settings")
 const startRoundButton = document.getElementById("start-round")
 const endGameButton = document.getElementById("end-game-button")
+const scoreboardModal = document.getElementById("scoreboard-modal")
+const endModalViewScoreboardButton = document.getElementById("view-scoreboard-button")
+const saveScoreButton = document.getElementById("save-score-button")
+const saveScoreModal = document.getElementById("save-score-modal")
+const saveScoreModalBackdrop = document.getElementById("save-score-modal-backdrop")
+const cancelSaveScoreButton = document.getElementById("cancel-save-score")
 
 const gameWindow = document.getElementById("game-window")
 
 const gearButton = document.getElementById("gear-icon")
-const mainButton = document.getElementById("main-menu-button")
 
 const minRadius = 30
 const maxRadius = 70
@@ -23,13 +28,6 @@ var gameRunning = false
 
 timerElement.textContent = (timeLeft / 1000).toFixed(1)
 counterElement.textContent = counter
-
-startButton.addEventListener("click", function () {
-  document.getElementById("game-begin-modal").classList.add("hidden")
-  modalBackdrop.classList.add("hidden")
-
-  startGame()
-})
 
 playAgainButton.addEventListener("click", function() {
   document.getElementById("game-end-modal").classList.add("hidden")
@@ -49,16 +47,16 @@ settingsButton.addEventListener("click", function() {
 
 gearButton.addEventListener("click", function() {
   if (!gameRunning) {
-    document.getElementById("game-begin-modal").classList.add("hidden")
+    scoreboardModal.classList.add("hidden")
     document.getElementById("settings-modal").classList.remove("hidden")
     modalBackdrop.classList.toggle("hidden")
   }
 })
 
-mainButton.addEventListener("click", function() {
-  document.getElementById("settings-modal").classList.add("hidden")
-  document.getElementById("game-begin-modal").classList.remove("hidden")
-})
+// mainButton.addEventListener("click", function() {
+//   document.getElementById("settings-modal").classList.add("hidden")
+//   scoreboardModal.classList.remove("hidden")
+// })
 
 startRoundButton.addEventListener("click", function() {
   gameRunning = true
@@ -67,7 +65,23 @@ startRoundButton.addEventListener("click", function() {
   generateRandomTarget()
 })
 
+saveScoreButton.addEventListener("click", function() {
+  saveScoreModal.classList.remove("hidden")
+  saveScoreModalBackdrop.classList.remove("hidden")
+})
 
+cancelSaveScoreButton.addEventListener("click", function() {
+  saveScoreModal.classList.add("hidden")
+  saveScoreModalBackdrop.classList.add("hidden")
+})
+
+endModalViewScoreboardButton.addEventListener("click", function() {
+  scoreboardModal.classList.toggle("hidden")
+})
+
+closeScoreboardButton.addEventListener("click", function () {
+  scoreboardModal.classList.add("hidden")
+})
 
 function startGame() {
   clearInterval(timerInterval)
