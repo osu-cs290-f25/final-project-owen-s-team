@@ -14,6 +14,22 @@ html, body {
   font-family: "Roboto Mono", monospace;
 }
 
+button {
+  cursor: pointer;
+}
+
+.modal {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  background-color: #2b2b2b;
+  color: #f6e6c8;
+  z-index: 1010;
+  padding: 20px;
+}
+
 .styled-button {
   color: #f6e6c8;
   background-color: #2b2b2b;
@@ -26,7 +42,6 @@ html, body {
   border-color: #F88B3D;
   color: #f66e0d;
   background-color: #543825;
-  cursor: pointer;
 }
 
 .header {
@@ -95,10 +110,8 @@ html, body {
 
 #end-modal-backdrop {
   position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  width: 100%;
+  height: 100%;
   z-index: 1000;
   background-color: rgba(0, 0, 0, 0.85);
 }
@@ -117,13 +130,7 @@ html, body {
 }
 
 .game-end-modal{
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
   text-align: center;
-  background-color: #2b2b2b;
-  color: #f6e6c8;
   border-radius: 5px;
   font-size: 20px;
   padding: 30px;
@@ -164,15 +171,8 @@ html, body {
 }
 
 #save-score-modal {
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #2b2b2b;
-  color: #f6e6c8;
   border-radius: 5px;
   font-size: 20px;
-  padding: 20px;
   z-index: 1020;
 }
 
@@ -205,19 +205,8 @@ html, body {
 }
 
 .scoreboard-modal {
-  height: 75%;
-  width: 40%;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
   text-align: center;
-  background-color:#313131;
   position: fixed;
-  border-radius: 10px;
-  border-width: 3px;
-  border-style: initial;
   font-size: 10px;
   padding: 5px 10px 5px 10px;
   z-index: 1010;
@@ -294,19 +283,8 @@ html, body {
 .settings-modal{
   height: 75%;
   width: 40%;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
   text-align: center;
-  background-color:#313131;
-  color:#f66e0d;
   position: fixed;
-  border-radius: 10px;
-  border-width: 3px;
-  border-style: initial;
-  border-color: rgb(44, 44, 255);
   font-size: 30px;
   padding: 5px 10px 5px 10px;
   z-index: 1010;
