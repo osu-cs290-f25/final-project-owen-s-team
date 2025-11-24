@@ -59,33 +59,35 @@
     </div>
     
     <div class="scoreboard-modal modal hidden" id="scoreboard-modal">
-      <div class= "begin-modal-container">
-        <h1 id="title-header">ScoreBoard</h1>
-        <button id="close-scoreboard-button" class="play-button">X</button>
-        <div id="scoreboard" class="modal-scoreboard"></div>
-        <div class= "Personal-container">
-          <button id="Personal" class="Personal-button styled-button">Personal</button>
+      <h1 id="title-header">Scoreboard</h1>
+      <hr/>
+      <button id="close-scoreboard-button" class="play-button">X</button>
+      <div id="scoreboard-display-type-buttons">
+        <button id="personal-button" class="styled-button">Personal</button>
+        <button id="global-button" class="styled-button">Global</button>
+      </div>
+      <div class="timer-container">
+        <label class="time-change" id="filter-timer" for="timer-filter">Time:</label>
+        <select class="timer-input" id="timer-input" name="filter-time">
+          <option>10</option>
+          <option>20</option>
+          <option>30</option>
+        </select>
+      </div>
+      <div class="difficulty-input-container">
+        <label class="difficulty-input-label" id="difficulty-scoreboard" for="filter-difficulty">Difficulty:</label>
+        <select class="difficulty-input" id="scoreboard-difficulty" name="filter-difficulty">
+          <option>Easy</option>
+          <option>Medium</option>
+          <option>Hard</option>
+        </select>
+      </div>
+      <button class="Apply-filter styled-button" id="Filter">Filter</button>
+      <div id="scoreboard-list-container">
+        <div class="scoreboard-list-row">
+          <p class="scoreboard-list-username">Example Username</p>
+          <p class="scoreboard-list-score">Example Score</p>
         </div>
-        <div class= "Global-container">
-          <button id="Global" class="Global-button styled-button">Global</button>
-        </div>
-        <div class="timer-container">
-            <label class="time-change" id="filter-timer" for="timer-filter">Time:</label>
-            <select class="timer-input" id="timer-input" name="filter-time">
-              <option>10</option>
-              <option>20</option>
-              <option>30</option>
-            </select>
-        </div>
-        <div class="difficulty-input-container">
-            <label class="difficulty-input-label" id="difficulty-scoreboard" for="filter-difficulty">Difficulty:</label>
-            <select class="difficulty-input" id="scoreboard-difficulty" name="filter-difficulty">
-              <option>Easy</option>
-              <option>Medium</option>
-              <option>Hard</option>
-            </select>
-        </div>
-        <button class="Apply-filter styled-button" id="Filter">Filter</button>
       </div>
     </div>
 
@@ -109,7 +111,7 @@
             </select>
           </div>
         </div>
-        <button id="play" class="play-button styled-button">Apply Settings</button>
+        <button id="apply-settings-button" class="styled-button">Apply Settings</button>
       </div>
     </div>
 
