@@ -13,6 +13,8 @@ const saveScoreButton = document.getElementById("save-score-button")
 const saveScoreModal = document.getElementById("save-score-modal")
 const saveScoreModalBackdrop = document.getElementById("save-score-modal-backdrop")
 const cancelSaveScoreButton = document.getElementById("cancel-save-score")
+const userNameInputField = document.getElementById("username-input")
+const submitSaveScoreButton = document.getElementById("submit-save-score")
 
 const gameWindow = document.getElementById("game-window")
 
@@ -70,9 +72,17 @@ saveScoreButton.addEventListener("click", function() {
   saveScoreModalBackdrop.classList.remove("hidden")
 })
 
-cancelSaveScoreButton.addEventListener("click", function() {
+function hideSaveScoreModal() {
   saveScoreModal.classList.add("hidden")
   saveScoreModalBackdrop.classList.add("hidden")
+  userNameInputField.value = ""
+}
+
+cancelSaveScoreButton.addEventListener("click", hideSaveScoreModal)
+
+submitSaveScoreButton.addEventListener("click", function() {
+  // Send score, username, difficulty, and time to server -> server will append data to a json file
+  hideSaveScoreModal()
 })
 
 endModalViewScoreboardButton.addEventListener("click", function() {
