@@ -2,15 +2,23 @@ const modalBackdrop = document.getElementById("end-modal-backdrop")
 const counterElement = document.getElementById("counter-number")
 const timerElement = document.getElementById("timer-number")
 
-const startButton = document.getElementById("play-button")
+const closeScoreboardButton = document.getElementById("close-scoreboard-button")
 const playAgainButton = document.getElementById("play-again")
 const settingsButton = document.getElementById("settings")
 const startRoundButton = document.getElementById("start-round")
+const endGameButton = document.getElementById("end-game-button")
+const scoreboardModal = document.getElementById("scoreboard-modal")
+const endModalViewScoreboardButton = document.getElementById("view-scoreboard-button")
+const saveScoreButton = document.getElementById("save-score-button")
+const saveScoreModal = document.getElementById("save-score-modal")
+const saveScoreModalBackdrop = document.getElementById("save-score-modal-backdrop")
+const cancelSaveScoreButton = document.getElementById("cancel-save-score")
+const userNameInputField = document.getElementById("username-input")
+const submitSaveScoreButton = document.getElementById("submit-save-score")
 
 const gameWindow = document.getElementById("game-window")
 
 const gearButton = document.getElementById("gear-icon")
-const mainButton = document.getElementById("main-menu-button")
 
 const minRadius = 30
 const maxRadius = 70
@@ -23,18 +31,15 @@ var gameRunning = false
 timerElement.textContent = (timeLeft / 1000).toFixed(1)
 counterElement.textContent = counter
 
-startButton.addEventListener("click", function () {
-  document.getElementById("game-begin-modal").classList.add("hidden")
-  modalBackdrop.classList.add("hidden")
-
-  startGame()
-})
-
 playAgainButton.addEventListener("click", function() {
   document.getElementById("game-end-modal").classList.add("hidden")
   modalBackdrop.classList.add("hidden")
 
   startGame()
+})
+
+endGameButton.addEventListener("click", function() {
+  timeLeft = 0;
 })
 
 settingsButton.addEventListener("click", function() {
@@ -44,16 +49,16 @@ settingsButton.addEventListener("click", function() {
 
 gearButton.addEventListener("click", function() {
   if (!gameRunning) {
-    document.getElementById("game-begin-modal").classList.add("hidden")
+    scoreboardModal.classList.add("hidden")
     document.getElementById("settings-modal").classList.remove("hidden")
     modalBackdrop.classList.toggle("hidden")
   }
 })
 
-mainButton.addEventListener("click", function() {
-  document.getElementById("settings-modal").classList.add("hidden")
-  document.getElementById("game-begin-modal").classList.remove("hidden")
-})
+// mainButton.addEventListener("click", function() {
+//   document.getElementById("settings-modal").classList.add("hidden")
+//   scoreboardModal.classList.remove("hidden")
+// })
 
 startRoundButton.addEventListener("click", function() {
   gameRunning = true
@@ -62,7 +67,31 @@ startRoundButton.addEventListener("click", function() {
   generateRandomTarget()
 })
 
+saveScoreButton.addEventListener("click", function() {
+  saveScoreModal.classList.remove("hidden")
+  saveScoreModalBackdrop.classList.remove("hidden")
+})
 
+function hideSaveScoreModal() {
+  saveScoreModal.classList.add("hidden")
+  saveScoreModalBackdrop.classList.add("hidden")
+  userNameInputField.value = ""
+}
+
+cancelSaveScoreButton.addEventListener("click", hideSaveScoreModal)
+
+submitSaveScoreButton.addEventListener("click", function() {
+  // Send score, username, difficulty, and time to server -> server will append data to a json file
+  hideSaveScoreModal()
+})
+
+endModalViewScoreboardButton.addEventListener("click", function() {
+  scoreboardModal.classList.toggle("hidden")
+})
+
+closeScoreboardButton.addEventListener("click", function () {
+  scoreboardModal.classList.add("hidden")
+})
 
 function startGame() {
   clearInterval(timerInterval)
