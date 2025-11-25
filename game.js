@@ -55,11 +55,6 @@ gearButton.addEventListener("click", function() {
   }
 })
 
-// mainButton.addEventListener("click", function() {
-//   document.getElementById("settings-modal").classList.add("hidden")
-//   scoreboardModal.classList.remove("hidden")
-// })
-
 startRoundButton.addEventListener("click", function() {
   gameRunning = true
   startRoundButton.classList.add("hidden")
