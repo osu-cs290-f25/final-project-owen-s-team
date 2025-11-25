@@ -64,29 +64,39 @@
       <button id="close-scoreboard-button" class="play-button">X</button>
       <div id="scoreboard-display-type-buttons">
         <button id="personal-button" class="styled-button">Personal</button>
-        <button id="global-button" class="styled-button">Global</button>
+        <button id="global-button" class="styled-button selected-scoreboard-type">Global</button>
       </div>
-      <div class="timer-container">
-        <label class="time-change" id="filter-timer" for="timer-filter">Time:</label>
-        <select class="timer-input" id="timer-input" name="filter-time">
-          <option>10</option>
-          <option>20</option>
-          <option>30</option>
-        </select>
+      <div id="scoreboard-filters-container">
+        <div id="scoreboard-time-filter-container">
+          <label for="timer-filter">Time:</label>
+          <select class="timer-input" id="selected-scoreboard-time" name="filter-time">
+            <option>10</option>
+            <option>20</option>
+            <option>30</option>
+          </select>
+        </div>
+        <div id="scoreboard-difficulty-filter-container">
+        <label for="filter-difficulty">Difficulty:</label>
+          <select class="difficulty-input" id="selected-scoreboard-difficulty" name="filter-difficulty">
+            <option>Easy</option>
+            <option>Medium</option>
+            <option>Hard</option>
+          </select>
+        </div>
+        <button class="styled-button" id="scoreboard-filter-button">Filter</button>
       </div>
-      <div class="difficulty-input-container">
-        <label class="difficulty-input-label" id="difficulty-scoreboard" for="filter-difficulty">Difficulty:</label>
-        <select class="difficulty-input" id="scoreboard-difficulty" name="filter-difficulty">
-          <option>Easy</option>
-          <option>Medium</option>
-          <option>Hard</option>
-        </select>
-      </div>
-      <button class="Apply-filter styled-button" id="Filter">Filter</button>
       <div id="scoreboard-list-container">
         <div class="scoreboard-list-row">
-          <p class="scoreboard-list-username">Example Username</p>
-          <p class="scoreboard-list-score">Example Score</p>
+          <p class="scoreboard-list-username">Username 1</p>
+          <p class="scoreboard-list-score">Score 1</p>
+        </div>
+        <div class="scoreboard-list-row">
+          <p class="scoreboard-list-username">Username 2</p>
+          <p class="scoreboard-list-score">Score 2</p>
+        </div>
+        <div class="scoreboard-list-row">
+          <p class="scoreboard-list-username">Username 3</p>
+          <p class="scoreboard-list-score">Score 3</p>
         </div>
       </div>
     </div>

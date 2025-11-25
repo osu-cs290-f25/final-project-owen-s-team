@@ -2,13 +2,16 @@ const modalBackdrop = document.getElementById("end-modal-backdrop")
 const counterElement = document.getElementById("counter-number")
 const timerElement = document.getElementById("timer-number")
 
-const closeScoreboardButton = document.getElementById("close-scoreboard-button")
 const playAgainButton = document.getElementById("play-again")
 const settingsButton = document.getElementById("settings")
 const startRoundButton = document.getElementById("start-round")
-const endGameButton = document.getElementById("end-game-button")
-const scoreboardModal = document.getElementById("scoreboard-modal")
+
 const endModalViewScoreboardButton = document.getElementById("view-scoreboard-button")
+const scoreboardModal = document.getElementById("scoreboard-modal")
+const closeScoreboardButton = document.getElementById("close-scoreboard-button")
+const personalButton = document.getElementById("personal-button")
+const globalButton = document.getElementById("global-button")
+
 const saveScoreButton = document.getElementById("save-score-button")
 const saveScoreModal = document.getElementById("save-score-modal")
 const saveScoreModalBackdrop = document.getElementById("save-score-modal-backdrop")
@@ -18,6 +21,7 @@ const submitSaveScoreButton = document.getElementById("submit-save-score")
 
 const gameWindow = document.getElementById("game-window")
 
+const endGameButton = document.getElementById("end-game-button")
 const gearButton = document.getElementById("gear-icon")
 
 const minRadius = 30
@@ -86,6 +90,16 @@ endModalViewScoreboardButton.addEventListener("click", function() {
 
 closeScoreboardButton.addEventListener("click", function () {
   scoreboardModal.classList.add("hidden")
+})
+
+personalButton.addEventListener("click", function() {
+  personalButton.classList.add("selected-scoreboard-type")
+  globalButton.classList.remove("selected-scoreboard-type")
+})
+
+globalButton.addEventListener("click", function() {
+  globalButton.classList.add("selected-scoreboard-type")
+  personalButton.classList.remove("selected-scoreboard-type")
 })
 
 function startGame() {
