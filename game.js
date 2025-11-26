@@ -29,9 +29,15 @@ const gameWindow = document.getElementById("game-window")
 const endGameButton = document.getElementById("end-game-button")
 const gearButton = document.getElementById("gear-icon")
 
-const minRadius = 30
-const maxRadius = 70
-var timeLeft = 15000
+const difficultySelect = document.getElementById("difficulty-selection")
+const timeSelect = document.getElementById("time-selection")
+
+var selectedTime = 10000
+var selectedDifficulty = "Easy"
+
+var minRadius = 70
+var maxRadius = 100
+var timeLeft = selectedTime
 var counter = 0
 let timerInterval = null
 
@@ -93,6 +99,23 @@ openSettingsButton.addEventListener("click", function() {
 
 applySettingsButton.addEventListener("click", function() {
   // track difficulty and time selection for use later when adding data for scoreboard
+  selectedDifficulty = difficultySelect.value
+  selectedTime = parseInt(timeSelect.value) * 1000
+
+  if (selectedDifficulty === "Easy") {
+    minRadius = 70
+    maxRadius = 100
+  } else if (selectedDifficulty === "Medium") {
+    minRadius = 30
+    maxRadius = 70
+  } else if (selectedDifficulty === "Hard") {
+    minRadius = 10
+    maxRadius = 40
+  }
+
+  timeLeft = selectedTime
+
+  timerElement.textContent = (timeLeft / 1000).toFixed(1)
   
   if (settingsOpenedFromGameEndModal) {
     gameEndModal.classList.remove("hidden")
@@ -125,7 +148,7 @@ globalButton.addEventListener("click", function() {
 function startGame() {
   clearInterval(timerInterval)
   counter = 0
-  timeLeft = 15000
+  timeLeft = selectedTime
 
   counterElement.textContent = counter
   timerElement.textContent = (timeLeft / 1000).toFixed(1)
