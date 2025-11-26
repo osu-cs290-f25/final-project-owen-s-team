@@ -222,23 +222,69 @@ button {
   background-color: #583D2A;
 }
 
+.modal-header{
+  font-size:40px;
+}
+
+.settings-modal{
+  width: 30%;
+  min-width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 30px;
+  padding: 25px;
+  padding-top: 0;
+  z-index: 1010;
+}
+
+#settings-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.settings-section {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.settings-label {
+  font-weight: 500;
+  font-size: 30px;
+}
+
+.settings-selection {
+  font-size: 25px;
+  font-weight: 500;
+  color: #f66e0d;
+  background-color: #414141;
+  border: none;
+  border-radius: 3px;
+  padding: 2px 4px;
+}
+
+#apply-settings-button {
+  margin-top: 45px;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 10px 15px;
+}
+
 .scoreboard-modal {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 40%;
-  height: 75%;
+  max-height: 75%;
   min-width: 300px;
-  min-height: 600px;
+  min-height: 400px;
   font-size: 10px;
   z-index: 1010;
-}
-
-#title-header{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size:40px;
 }
 
 hr {
@@ -308,7 +354,7 @@ hr {
   flex-grow: 1;
   margin-top: 20px;
   border-radius: 12px;
-  min-height: 250px;
+  min-height: 50px;
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
@@ -333,19 +379,6 @@ hr {
 .scoreboard-list-score {
   color: #f66e0d;
   margin-right: 15px;
-}
-
-.settings-modal{
-  height: 75%;
-  width: 40%;
-  text-align: center;
-  font-size: 30px;
-  padding: 5px 10px 5px 10px;
-  z-index: 1010;
-}
-
-.timer-container-setting{
-  display:flex;
 }
 
 .hidden {
