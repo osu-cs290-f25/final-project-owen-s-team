@@ -41,7 +41,7 @@
         <button id="save-score-button" class="styled-button">Save Score</button>
         <div id="game-end-modal-middle-buttons">
           <button id="play-again" class="end-button styled-button">Play Again</button>
-          <button id="settings" class="end-button styled-button">Change Settings</button>
+          <button id="open-settings" class="end-button styled-button">Change Settings</button>
         </div>
         <button id="view-scoreboard-button" class="styled-button">View Scoreboard</button>
       </div>
@@ -59,7 +59,7 @@
     </div>
     
     <div class="scoreboard-modal modal hidden" id="scoreboard-modal">
-      <h1 id="title-header">Scoreboard</h1>
+      <h1 class="modal-header">Scoreboard</h1>
       <hr/>
       <button id="close-scoreboard-button" class="play-button">X</button>
       <div id="scoreboard-display-type-buttons">
@@ -123,27 +123,27 @@
     </div>
 
     <div class="settings-modal modal hidden" id="settings-modal">
-      <div class="settings-modal-container">
-        <h1 id="title-header">Settings</h1>
-        <div class="settings-list-container">
-          <div class="difficulty-input-container">
-            <label class="difficulty-input-label" id="difficulty" for="filter-difficulty">Difficulty:</label>
-            <select class="difficulty-input" id="difficulty-input" name="filter-difficulty">
-              <option>Easy</option>
-              <option>Medium</option>
-              <option>Hard</option>
-            </select>
-          <div class="timer-container-setting">
-            <label class="time-change" id="timer-setting" for="timer-filter">Time:</label>
-            <select class="timer-input" id="setting-timer" name="filter-time">
-              <option>10</option>
-              <option>20</option>
-              <option>30</option>
-            </select>
-          </div>
+      <h1 class="modal-header">Settings</h1>
+      <hr/>
+      <div id="settings-list-container">
+        <div id="difficulty-setting-container" class="settings-section">
+          <label class="settings-label" for="difficulty-setting">Difficulty:</label>
+          <select id="difficulty-selection" class="settings-selection" name="difficulty-setting">
+            <option>Easy</option>
+            <option>Medium</option>
+            <option>Hard</option>
+          </select>
         </div>
-        <button id="apply-settings-button" class="styled-button">Apply Settings</button>
+        <div id="time-setting-container" class="settings-section">
+          <label class="settings-label" for="time-setting">Time:</label>
+          <select id="time-selection" class="settings-selection" name="time-setting">
+            <option>10s</option>
+            <option>20s</option>
+            <option>30s</option>
+          </select>
+        </div>
       </div>
+      <button id="apply-settings-button" class="styled-button">Apply Changes</button>
     </div>
 
   </body>
