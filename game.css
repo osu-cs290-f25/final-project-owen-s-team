@@ -311,6 +311,7 @@ hr {
   min-height: 250px;
   display: flex;
   flex-direction: column;
+  overflow-y: scroll;
 }
 
 .scoreboard-list-row {
@@ -319,6 +320,10 @@ hr {
   justify-content: space-between;
   align-items: center;
   font-size: 18px;
+}
+
+.scoreboard-list-place {
+  color: #f66e0d;
 }
 
 .scoreboard-list-username {
