@@ -108,6 +108,26 @@ button {
   overflow: hidden;
 }
 
+.miss-alert {
+  position: absolute;
+  font-size: 30px;
+  color: #f66e0d;
+  font-weight: 600;
+  margin: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 #end-modal-backdrop {
   position: fixed;
   width: 100%;

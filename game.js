@@ -66,6 +66,27 @@ gearButton.addEventListener("click", function() {
   }
 })
 
+function spawnMissAlert(x, y) {
+  var missAlert = document.createElement("p")
+  missAlert.classList.add("miss-alert")
+  missAlert.textContent = "-1"
+  missAlert.style.top = y + "px"
+  missAlert.style.left = x + "px"
+  gameWindow.appendChild(missAlert)
+}
+
+gameWindow.addEventListener("click", function(event) {
+  if (event.target != event.currentTarget) return // exit if the event is inherited from a child
+  if (gameRunning) {
+    const rect = gameWindow.getBoundingClientRect()
+    const x = event.clientX - rect.left
+    const y = event.clientY - rect.top 
+    spawnMissAlert(x, y)
+    counter--
+    counterElement.textContent = counter
+  }
+})
+
 startRoundButton.addEventListener("click", function() {
   gameRunning = true
   startRoundButton.classList.add("hidden")
@@ -153,8 +174,9 @@ function startGame() {
   counterElement.textContent = counter
   timerElement.textContent = (timeLeft / 1000).toFixed(1)
 
-  //Removes the target remaining on screen from last game
+  //Removes the target and any miss alerts remaining on screen from last game
   document.querySelectorAll(".target").forEach(t => t.remove())
+  document.querySelectorAll(".miss-alert").forEach(m => m.remove())
 
   startRoundButton.classList.remove("hidden")
 }
