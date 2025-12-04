@@ -1,0 +1,50 @@
+<div class="scoreboard-modal modal hidden" id="scoreboard-modal">
+
+  <h1 class="modal-header">Scoreboard</h1>
+
+  <hr/>
+
+  <button id="close-scoreboard-button" class="play-button">X</button>
+
+  <input type="text" id="scoreboard-username-input" placeholder="Username"/>
+
+  <div id="scoreboard-display-type-buttons">
+    <button id="personal-button" class="styled-button">Personal</button>
+    <button id="global-button" class="styled-button selected-scoreboard-type">Global</button>
+  </div>
+
+  <div id="scoreboard-filters-container">
+    <div id="scoreboard-time-filter-container">
+      <label for="timer-filter">Time:</label>
+      <select class="timer-input" id="selected-scoreboard-time" name="filter-time">
+        <option>10s</option>
+        <option>20s</option>
+        <option>30s</option>
+      </select>
+    </div>
+
+    <div id="scoreboard-difficulty-filter-container">
+    <label for="filter-difficulty">Difficulty:</label>
+      <select class="difficulty-input" id="selected-scoreboard-difficulty" name="filter-difficulty">
+        <option>Easy</option>
+        <option>Medium</option>
+        <option>Hard</option>
+      </select>
+    </div>
+
+    <button class="styled-button" id="scoreboard-filter-button">Filter</button>
+  </div>
+
+  <div id="scoreboard-list-container">
+    
+    <!-- rendering dummy data for now -->
+    <!-- (assuming that scoreData is sorted descending by score) -->
+    <!-- conditional logic for scoreboard filters will happen here -->
+    <% scoreData.forEach((game, index) => { 
+      game.place = index %>
+      <%- include("scoreboardRowEntry", game) %>
+    <% }) %>
+
+  </div>
+
+</div>
