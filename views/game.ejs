@@ -13,7 +13,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-
   </head>
   <body>
     <div class="header">
@@ -58,70 +57,7 @@
       </div>
     </div>
     
-    <div class="scoreboard-modal modal hidden" id="scoreboard-modal">
-      <h1 class="modal-header">Scoreboard</h1>
-      <hr/>
-      <button id="close-scoreboard-button" class="play-button">X</button>
-      <input type="text" id="scoreboard-username-input" placeholder="Username"/>
-      <div id="scoreboard-display-type-buttons">
-        <button id="personal-button" class="styled-button">Personal</button>
-        <button id="global-button" class="styled-button selected-scoreboard-type">Global</button>
-      </div>
-      <div id="scoreboard-filters-container">
-        <div id="scoreboard-time-filter-container">
-          <label for="timer-filter">Time:</label>
-          <select class="timer-input" id="selected-scoreboard-time" name="filter-time">
-            <option>10s</option>
-            <option>20s</option>
-            <option>30s</option>
-          </select>
-        </div>
-        <div id="scoreboard-difficulty-filter-container">
-        <label for="filter-difficulty">Difficulty:</label>
-          <select class="difficulty-input" id="selected-scoreboard-difficulty" name="filter-difficulty">
-            <option>Easy</option>
-            <option>Medium</option>
-            <option>Hard</option>
-          </select>
-        </div>
-        <button class="styled-button" id="scoreboard-filter-button">Filter</button>
-      </div>
-      <div id="scoreboard-list-container">
-        <!-- Example scores for structure -->
-        <div class="scoreboard-list-row">
-          <p class="scoreboard-list-username"><span class="scoreboard-list-place">1. </span>Username</p>
-          <p class="scoreboard-list-score">Score</p>
-        </div>
-        <div class="scoreboard-list-row">
-          <p class="scoreboard-list-username"><span class="scoreboard-list-place">2. </span>Username</p>
-          <p class="scoreboard-list-score">Score</p>
-        </div>
-        <div class="scoreboard-list-row">
-          <p class="scoreboard-list-username"><span class="scoreboard-list-place">3. </span>Username</p>
-          <p class="scoreboard-list-score">Score</p>
-        </div>
-        <div class="scoreboard-list-row">
-          <p class="scoreboard-list-username"><span class="scoreboard-list-place">4. </span>Username</p>
-          <p class="scoreboard-list-score">Score</p>
-        </div>
-        <div class="scoreboard-list-row">
-          <p class="scoreboard-list-username"><span class="scoreboard-list-place">5. </span>Username</p>
-          <p class="scoreboard-list-score">Score</p>
-        </div>
-        <div class="scoreboard-list-row">
-          <p class="scoreboard-list-username"><span class="scoreboard-list-place">6. </span>Username</p>
-          <p class="scoreboard-list-score">Score</p>
-        </div>
-        <div class="scoreboard-list-row">
-          <p class="scoreboard-list-username"><span class="scoreboard-list-place">7. </span>Username</p>
-          <p class="scoreboard-list-score">Score</p>
-        </div>
-        <div class="scoreboard-list-row">
-          <p class="scoreboard-list-username"><span class="scoreboard-list-place">8. </span>Username</p>
-          <p class="scoreboard-list-score">Score</p>
-        </div>
-      </div>
-    </div>
+    <%- include("partials/scoreboardModal", scoreData) %>
 
     <div class="settings-modal modal hidden" id="settings-modal">
       <h1 class="modal-header">Settings</h1>

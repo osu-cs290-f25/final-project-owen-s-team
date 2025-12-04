@@ -1,0 +1,17 @@
+body {
+  background-color: #2b2b2b;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  font-family: "Roboto Mono", monospace;
+  color: #f66e0d;
+  font-size: 60px;
+  font-weight: 800;
+  text-align: center;
+}
