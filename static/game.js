@@ -109,7 +109,34 @@ cancelSaveScoreButton.addEventListener("click", hideSaveScoreModal)
 
 submitSaveScoreButton.addEventListener("click", function() {
   // Send score, username, difficulty, and time to server -> server will append data to a json file
-  hideSaveScoreModal()
+  var username = userNameInputField.value.trim()
+
+  if (!username) {
+    alert("You must enter a username to save score!")
+  } else {
+    var reqUrl = "/save-score"
+    fetch(reqUrl, {
+      method: "POST",
+      body: JSON.stringify({
+        username: username,
+        score: counter,             
+        time: selectedTime / 1000,   
+        difficulty: selectedDifficulty
+      }),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }).then(function(res) {
+      if (res.status === 200) {
+        alert("Score save successfully!")
+      } else {
+        alert("An error occured saving the score")
+      }
+    }).catch(function(err) {
+      alert("An error occured saving the score")
+    })
+    hideSaveScoreModal()
+  }
 })
 
 openSettingsButton.addEventListener("click", function() {
