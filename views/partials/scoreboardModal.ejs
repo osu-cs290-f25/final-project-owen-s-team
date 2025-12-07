@@ -41,8 +41,12 @@
     <!-- (assuming that scoreData is sorted descending by score) -->
     <!-- conditional logic for scoreboard filters will happen here -->
     <% scoreData.forEach((game, index) => { 
-      game.place = index %>
-      <%- include("scoreboardRowEntry", game) %>
+      %>
+      <%- include("scoreboardRowEntry", {
+        username: game.username,
+        score: game.score,
+        place: index + 1
+      }) %>
     <% }) %>
 
   </div>

@@ -3,50 +3,43 @@
     "username": "Owen",
     "score": 150,
     "time": 10,
-    "difficulty": "Medium",
-    "place": 0
+    "difficulty": "Medium"
   },
   {
     "username": "Charles",
     "score": 110,
     "time": 10,
-    "difficulty": "Medium",
-    "place": 1
+    "difficulty": "Medium"
   },
   {
     "username": "Ethan",
     "score": 107,
     "time": 10,
-    "difficulty": "Medium",
-    "place": 2
+    "difficulty": "Medium"
   },
   {
     "username": "Brian",
     "score": 93,
     "time": 10,
-    "difficulty": "Medium",
-    "place": 3
+    "difficulty": "Medium"
   },
   {
     "username": "Brian",
     "score": 50,
     "time": 10,
-    "difficulty": "Medium",
-    "place": 4
+    "difficulty": "Medium"
   },
   {
     "username": "Ethan",
     "score": 43,
     "time": 10,
-    "difficulty": "Medium",
-    "place": 5
+    "difficulty": "Medium"
   },
   {
     "username": "Charles",
     "score": 19,
     "time": 10,
-    "difficulty": "Medium",
-    "place": 6
+    "difficulty": "Medium"
   },
   {
     "username": "newuser",
