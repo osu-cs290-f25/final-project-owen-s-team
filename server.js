@@ -1,9 +1,11 @@
 var express = require("express")
 var app = express()
+var fs = require("fs")
 var port = process.env.PORT || 8000
 
 var scoreData = require("./dummyData.json")
 
+app.use(express.json())
 app.use(express.static("static"))
 
 app.use(express.static("static"))
@@ -17,6 +19,26 @@ app.get("/game", function(req, res) {
   res.status(200).render("game", {
     scoreData: scoreData
   })
+})
+
+app.post("/save-score", function(req, res, next) {
+  if (req.body && req.body.username && req.body.score != null && req.body.time && req.body.difficulty) {
+    var newScore = {
+      username: req.body.username,
+      score: req.body.score,
+      time: req.body.time,
+      difficulty: req.body.difficulty
+    }
+    scoreData.push(newScore)
+    fs.writeFileSync(
+      "./dummyData.json",
+      JSON.stringify(scoreData, null, 2)
+    )
+    
+    res.status(200).send("Score saved successfully!")
+  } else {
+    res.status(400).send("Request body failed")
+  }
 })
 
 app.get("*splat", function(req, res) {
