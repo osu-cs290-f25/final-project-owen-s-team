@@ -36,19 +36,7 @@
   </div>
 
   <div id="scoreboard-list-container">
-    
-    <!-- rendering dummy data for now -->
-    <!-- (assuming that scoreData is sorted descending by score) -->
-    <!-- conditional logic for scoreboard filters will happen here -->
-    <% scoreData.forEach((game, index) => { 
-      %>
-      <%- include("scoreboardRowEntry", {
-        username: game.username,
-        score: game.score,
-        place: index + 1
-      }) %>
-    <% }) %>
-
+    <!-- Contents rendered on client-side -->
   </div>
 
 </div>

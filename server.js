@@ -3,7 +3,7 @@ var app = express()
 var fs = require("fs")
 var port = process.env.PORT || 8000
 
-var scoreData = require("./dummyData.json")
+var scoreData = require("./scoreData.json")
 
 app.use(express.json())
 app.use(express.static("static"))
@@ -21,6 +21,16 @@ app.get("/game", function(req, res) {
   })
 })
 
+app.get("/get-score-data", function(req, res) {
+  fs.readFile("./scoreData.json", function (err, data) {
+    if (err) {
+      res.status(500).send("Error reading score data")
+    } else {
+      res.json(JSON.parse(data))
+    }
+  })
+})
+
 app.post("/save-score", function(req, res, next) {
   if (req.body && req.body.username && req.body.score != null && req.body.time && req.body.difficulty) {
     var newScore = {
@@ -31,7 +41,7 @@ app.post("/save-score", function(req, res, next) {
     }
     scoreData.push(newScore)
     fs.writeFileSync(
-      "./dummyData.json",
+      "./scoreData.json",
       JSON.stringify(scoreData, null, 2)
     )
     
