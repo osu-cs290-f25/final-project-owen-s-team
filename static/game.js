@@ -43,6 +43,8 @@ let timerInterval = null
 
 var gameRunning = false
 
+var savedScore = false
+
 timerElement.textContent = (timeLeft / 1000).toFixed(1)
 counterElement.textContent = counter
 
@@ -95,8 +97,12 @@ startRoundButton.addEventListener("click", function() {
 })
 
 saveScoreButton.addEventListener("click", function() {
-  saveScoreModal.classList.remove("hidden")
-  saveScoreModalBackdrop.classList.remove("hidden")
+  if (savedScore) {
+    alert("Already saved score.")
+  } else {
+    saveScoreModal.classList.remove("hidden")
+    saveScoreModalBackdrop.classList.remove("hidden")
+  }
 })
 
 function hideSaveScoreModal() {
@@ -114,27 +120,11 @@ submitSaveScoreButton.addEventListener("click", function() {
   if (!username) {
     alert("You must enter a username to save score!")
   } else {
-    var reqUrl = "/save-score"
-    fetch(reqUrl, {
-      method: "POST",
-      body: JSON.stringify({
-        username: username,
-        score: counter,             
-        time: selectedTime / 1000,   
-        difficulty: selectedDifficulty
-      }),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    }).then(function(res) {
-      if (res.status === 200) {
-        alert("Score save successfully!")
-      } else {
-        alert("An error occured saving the score")
-      }
-    }).catch(function(err) {
-      alert("An error occured saving the score")
-    })
+
+    // send json data to server to be saved
+    sendScoreData(username)
+    savedScore = true
+  
     hideSaveScoreModal()
   }
 })
@@ -176,11 +166,15 @@ applySettingsButton.addEventListener("click", function() {
 })
 
 endModalViewScoreboardButton.addEventListener("click", function() {
+  gameEndModal.classList.toggle("hidden")
   scoreboardModal.classList.toggle("hidden")
+
+  loadScoreData() // populate scoreboard list
 })
 
 closeScoreboardButton.addEventListener("click", function () {
   scoreboardModal.classList.add("hidden")
+  gameEndModal.classList.remove("hidden")
 })
 
 personalButton.addEventListener("click", function() {
@@ -197,6 +191,7 @@ function startGame() {
   clearInterval(timerInterval)
   counter = 0
   timeLeft = selectedTime
+  savedScore = false
 
   counterElement.textContent = counter
   timerElement.textContent = (timeLeft / 1000).toFixed(1)
@@ -259,3 +254,58 @@ function generateRandomTarget() {
   document.getElementById("game-window").appendChild(target)
 }
 
+// Scoreboard Handling
+function sendScoreData(username) {
+  var reqUrl = "/save-score"
+  fetch(reqUrl, {
+    method: "POST",
+    body: JSON.stringify({
+      username: username,
+      score: counter,
+      time: selectedTime / 1000,
+      difficulty: selectedDifficulty
+    }),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }).then(function(res) {
+    if (res.status === 200) {
+      alert("Score saved successfully!")
+
+    } else {
+      alert("An error occured saving the score")
+    }
+  }).catch(function(err) {
+    alert("An error occured saving the score")
+  })
+}
+
+function updateScoreboard(scores) {
+  var scoreboardListContainer = document.getElementById("scoreboard-list-container")
+  scoreboardListContainer.innerHTML = "" // clear current scoreboard
+
+  scores.forEach((game, index) => {
+    // Use compiled scoreboard row entry template
+    var scoreboardRowHTML = window.templates.scoreboardRowEntry({
+      username: game.username,
+      score: game.score,
+      place: index + 1
+    })
+
+    scoreboardListContainer.insertAdjacentHTML("beforeend", scoreboardRowHTML)
+  })
+}
+
+// get score data as an array from the server, sort it, and store in scoreData variable
+function loadScoreData() {
+  fetch("/get-score-data")
+    .then(function(res) {
+      return res.json() // parses json data into an array of objects that gets passed into the next .then
+    })
+    .then(function(scores) {
+      // sort scores
+      scores.sort((a, b) => b.score - a.score) // if negative, a before b, if positive, b before add
+
+      updateScoreboard(scores) // update scoreboard to hold any new
+    })
+}

@@ -1,7 +1,9 @@
 {
   "scripts": {
     "start": "node server.js",
-    "dev": "node_modules/.bin/nodemon server.js"
+    "dev": "node_modules/.bin/nodemon server.js",
+    "build": "node compiler.js views/partials/scoreboardRowEntry.ejs static/scoreboardRowEntryTemplate.js",
+    "prestart": "cp node_modules/ejs/ejs.min.js static/ && npm run build"
   },
   "dependencies": {
     "ejs": "^3.1.10",
