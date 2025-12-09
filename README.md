@@ -5,6 +5,7 @@ Aim Trainer is a web based game designed to help users improve their aim and rea
 ## Configuration
 
 To visit the website, you must run the server on your own machine and visit localhost:8000 in your browser. To do this:
+- Clone this repository from github
 - Ensure you have [NodeJS](https://nodejs.org/en) installed on your machine
 - Navigate to the main project directory, and in your terminal, run
 ```bash
