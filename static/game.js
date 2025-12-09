@@ -11,7 +11,9 @@ const scoreboardModal = document.getElementById("scoreboard-modal")
 const closeScoreboardButton = document.getElementById("close-scoreboard-button")
 const personalButton = document.getElementById("personal-button")
 const globalButton = document.getElementById("global-button")
+
 const scoreboardFilterButton = document.getElementById("scoreboard-filter-button")
+const scoreboardUsernameInput = document.getElementById("scoreboard-username-input")
 
 const gameEndModal = document.getElementById("game-end-modal")
 const saveScoreButton = document.getElementById("save-score-button")
@@ -179,13 +181,24 @@ closeScoreboardButton.addEventListener("click", function () {
 })
 
 personalButton.addEventListener("click", function() {
-  personalButton.classList.add("selected-scoreboard-type")
-  globalButton.classList.remove("selected-scoreboard-type")
+  if (scoreboardUsernameInput.value)
+  {
+    personalButton.classList.add("selected-scoreboard-type")
+    globalButton.classList.remove("selected-scoreboard-type")
+
+    // populate scoreboard
+    loadScoreData()
+  } else {
+    alert("You must input a username to view personal scores!")
+  }
 })
 
 globalButton.addEventListener("click", function() {
   globalButton.classList.add("selected-scoreboard-type")
   personalButton.classList.remove("selected-scoreboard-type")
+  
+  // populate scorebaord
+  loadScoreData()
 })
 
 scoreboardFilterButton.addEventListener("click", loadScoreData)
@@ -283,11 +296,7 @@ function sendScoreData(username) {
   })
 }
 
-function updateScoreboard(scores) {
-  // store filter info
-  var selectedScoreboardTime = document.getElementById("selected-scoreboard-time").value
-  var selectedScoreboardDifficulty = document.getElementById("selected-scoreboard-difficulty").value
-
+function renderGlobalScores(scores, difficulty, time) {
   // clear current scoreboard
   var scoreboardListContainer = document.getElementById("scoreboard-list-container")
   scoreboardListContainer.innerHTML = "" 
@@ -295,23 +304,66 @@ function updateScoreboard(scores) {
   // track place counter
   place = 1;
 
-  // populate scoreboard
+  var seenUsers = []
+
   scores.forEach((game) => {
-    
-    // Add relevant games only
-    if (game.difficulty === selectedScoreboardDifficulty && game.time.toString() === selectedScoreboardTime)
-    {
+    // Add relevant games only (selected difficulty/time, one score per username)
+    if (game.difficulty === difficulty && game.time.toString() === time && !seenUsers.includes(game.username)) {
+
       var scoreboardRowHTML = window.templates.scoreboardRowEntry({
-      username: game.username,
-      score: game.score,
-      place: place
+        username: game.username,
+        score: game.score,
+        place: place
       })
+
+      seenUsers.push(game.username)
       place++
 
       scoreboardListContainer.insertAdjacentHTML("beforeend", scoreboardRowHTML)
     }
-
   })
+}
+
+function renderPersonalScores(scores, difficulty, time, activeUser) {
+  // clear current scoreboard
+  var scoreboardListContainer = document.getElementById("scoreboard-list-container")
+  scoreboardListContainer.innerHTML = "" 
+
+  // track place counter
+  place = 1;
+
+  scores.forEach((game) => {
+    // Add relevant games only (selected difficulty/time, username same as activeUser)
+    if (game.difficulty === difficulty && game.time.toString() === time && (game.username === activeUser)) {
+
+      var scoreboardRowHTML = window.templates.scoreboardRowEntry({
+        username: game.username,
+        score: game.score,
+        place: place
+      })
+      
+      place++
+
+      scoreboardListContainer.insertAdjacentHTML("beforeend", scoreboardRowHTML)
+    }
+  })
+}
+
+function updateScoreboard(scores) {
+  // store filter info
+  var selectedScoreboardTime = document.getElementById("selected-scoreboard-time").value
+  var selectedScoreboardDifficulty = document.getElementById("selected-scoreboard-difficulty").value
+
+  // person vs global scores being displayed
+  var personal = personalButton.classList.contains("selected-scoreboard-type")
+
+  // populate scoreboard appropriately based on scoreboard type
+  if (personal) {
+    renderPersonalScores(scores, selectedScoreboardDifficulty, selectedScoreboardTime, scoreboardUsernameInput.value)
+  }
+  else {
+    renderGlobalScores(scores, selectedScoreboardDifficulty, selectedScoreboardTime)
+  }
 }
 
 // get score data as an array from the server, sort it, and store in scoreData variable
