@@ -24,6 +24,7 @@ const userNameInputField = document.getElementById("username-input")
 const submitSaveScoreButton = document.getElementById("submit-save-score")
 
 const settingsModal = document.getElementById("settings-modal")
+const colorSelect = document.getElementById("color-selection")
 const applySettingsButton = document.getElementById("apply-settings-button")
 var settingsOpenedFromGameEndModal;
 
@@ -44,6 +45,21 @@ var timeLeft = selectedTime
 var counter = 0
 let timerInterval = null
 
+const colorMap = {
+  "Default": "#f6e6c8",
+  "Red": "#e74c3c",
+  "Green": "#2ecc71",
+  "Blue": "#3498db",
+  "Black": "#000000",
+  "White": "#ffffff",
+  "Orange": "#f39c12"
+};
+
+const clickSound = new Audio("click.wav");
+const closeSound = new Audio("close.wav");
+const selectBoxesSound = new Audio("selectBoxes.wav");
+const missSound = new Audio("miss.wav");
+
 var gameRunning = false
 
 var savedScore = false
@@ -56,6 +72,8 @@ playAgainButton.addEventListener("click", function() {
   modalBackdrop.classList.add("hidden")
 
   startGame()
+  selectBoxesSound.currentTime = 0;
+  selectBoxesSound.play();
 })
 
 endGameButton.addEventListener("click", function() {
@@ -69,6 +87,8 @@ gearButton.addEventListener("click", function() {
     modalBackdrop.classList.toggle("hidden")
     settingsOpenedFromGameEndModal = false;
   }
+  selectBoxesSound.currentTime = 0;
+  selectBoxesSound.play();
 })
 
 function spawnMissAlert(x, y) {
@@ -90,6 +110,8 @@ gameWindow.addEventListener("click", function(event) {
     counter--
     counterElement.textContent = counter
   }
+  missSound.currentTime = 0;
+  missSound.play();
 })
 
 startRoundButton.addEventListener("click", function() {
@@ -97,6 +119,8 @@ startRoundButton.addEventListener("click", function() {
   startRoundButton.classList.add("hidden")
   startTimer()
   generateRandomTarget()
+  selectBoxesSound.currentTime = 0;
+  selectBoxesSound.play();
 })
 
 saveScoreButton.addEventListener("click", function() {
@@ -106,12 +130,16 @@ saveScoreButton.addEventListener("click", function() {
     saveScoreModal.classList.remove("hidden")
     saveScoreModalBackdrop.classList.remove("hidden")
   }
+  selectBoxesSound.currentTime = 0;
+  selectBoxesSound.play();
 })
 
 function hideSaveScoreModal() {
   saveScoreModal.classList.add("hidden")
   saveScoreModalBackdrop.classList.add("hidden")
   userNameInputField.value = ""
+  selectBoxesSound.currentTime = 0;
+  selectBoxesSound.play();
 }
 
 cancelSaveScoreButton.addEventListener("click", hideSaveScoreModal)
@@ -130,18 +158,29 @@ submitSaveScoreButton.addEventListener("click", function() {
   
     hideSaveScoreModal()
   }
+  selectBoxesSound.currentTime = 0;
+  selectBoxesSound.play();
 })
 
 openSettingsButton.addEventListener("click", function() {
   settingsOpenedFromGameEndModal = true;
   gameEndModal.classList.add("hidden")
   settingsModal.classList.remove("hidden")
+
+  selectBoxesSound.currentTime = 0;
+  selectBoxesSound.play();
 })
+
+
 
 applySettingsButton.addEventListener("click", function() {
   // track difficulty and time selection for use later when adding data for scoreboard
   selectedDifficulty = difficultySelect.value
   selectedTime = parseInt(timeSelect.value) * 1000
+  
+  const selectedColorName = colorSelect.value;
+  const selectedColor = colorMap[selectedColorName] || selectedColorName;
+  document.documentElement.style.setProperty("--target-color", selectedColor);
 
   if (selectedDifficulty === "Easy") {
     minRadius = 70
@@ -166,6 +205,9 @@ applySettingsButton.addEventListener("click", function() {
     modalBackdrop.classList.add("hidden")
   }
   settingsModal.classList.add("hidden")
+
+  selectBoxesSound.currentTime = 0;
+  selectBoxesSound.play();
 })
 
 endModalViewScoreboardButton.addEventListener("click", function() {
@@ -173,11 +215,15 @@ endModalViewScoreboardButton.addEventListener("click", function() {
   scoreboardModal.classList.toggle("hidden")
 
   loadScoreData() // populate scoreboard list
+  selectBoxesSound.currentTime = 0;
+  selectBoxesSound.play();
 })
 
 closeScoreboardButton.addEventListener("click", function () {
   scoreboardModal.classList.add("hidden")
   gameEndModal.classList.remove("hidden")
+  closeSound.currentTime = 0;
+  closeSound.play();
 })
 
 personalButton.addEventListener("click", function() {
@@ -191,6 +237,8 @@ personalButton.addEventListener("click", function() {
   } else {
     alert("You must input a username to view personal scores!")
   }
+  selectBoxesSound.currentTime = 0;
+  selectBoxesSound.play();
 })
 
 globalButton.addEventListener("click", function() {
@@ -199,6 +247,8 @@ globalButton.addEventListener("click", function() {
   
   // populate scorebaord
   loadScoreData()
+  selectBoxesSound.currentTime = 0;
+  selectBoxesSound.play();
 })
 
 scoreboardFilterButton.addEventListener("click", loadScoreData)
@@ -217,6 +267,7 @@ function startGame() {
   document.querySelectorAll(".miss-alert").forEach(m => m.remove())
 
   startRoundButton.classList.remove("hidden")
+  
 }
 
 function startTimer() {
@@ -242,6 +293,8 @@ function endGame() {
   document.getElementById("final-score").textContent = counter
   modalBackdrop.classList.remove("hidden")
   document.getElementById("game-end-modal").classList.remove("hidden")
+  selectBoxesSound.currentTime = 0;
+  selectBoxesSound.play();
 }
 
 function handleClick(event) {
@@ -249,6 +302,8 @@ function handleClick(event) {
   counter++
   counterElement.textContent = counter
   generateRandomTarget()
+  clickSound.currentTime = 0;
+  clickSound.play();
 }
 
 function getRandomInt(min, max) {
@@ -378,4 +433,6 @@ function loadScoreData() {
 
       updateScoreboard(scores) // update scoreboard to hold any new
     })
+  selectBoxesSound.currentTime = 0;
+  selectBoxesSound.play();
 }

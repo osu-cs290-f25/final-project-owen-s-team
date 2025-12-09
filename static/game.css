@@ -136,13 +136,17 @@ button {
   background-color: rgba(0, 0, 0, 0.85);
 }
 
+:root{
+  --target-color:#f6e6c8;
+}
+
 .target {
   position: relative;
   transform: translate(-50%, -50%);
   margin: 10px;
   border-radius: 50%;
   border: none;
-  background-color: #f6e6c8;
+  background-color: var(--target-color);
 }
 
 .game-end-modal{
