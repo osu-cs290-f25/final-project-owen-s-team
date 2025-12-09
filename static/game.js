@@ -55,13 +55,12 @@ const colorMap = {
   "Orange": "#f39c12"
 };
 
-const clickSound = new Audio("click.wav");
-const closeSound = new Audio("close.wav");
-const selectBoxesSound = new Audio("selectBoxes.wav");
-const missSound = new Audio("miss.wav");
+const clickSound = new Audio("/sounds/click.wav");
+const closeSound = new Audio("/sounds/close.wav");
+const selectBoxesSound = new Audio("/sounds/selectBoxes.wav");
+const missSound = new Audio("/sounds/miss.wav");
 
 var gameRunning = false
-
 var savedScore = false
 
 timerElement.textContent = (timeLeft / 1000).toFixed(1)
@@ -433,6 +432,4 @@ function loadScoreData() {
 
       updateScoreboard(scores) // update scoreboard to hold any new
     })
-  selectBoxesSound.currentTime = 0;
-  selectBoxesSound.play();
 }
