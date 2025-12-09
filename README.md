@@ -8,6 +8,10 @@ To visit the website, you must run the server on your own machine and visit loca
 - Ensure you have [NodeJS](https://nodejs.org/en) installed on your machine
 - Navigate to the main project directory, and in your terminal, run
 ```bash
+# install dependencies
+npm install
+
+# run the app
 npm start
 ```
 - In your browser, navigate to "localhost:8000"
