@@ -11,6 +11,7 @@ const scoreboardModal = document.getElementById("scoreboard-modal")
 const closeScoreboardButton = document.getElementById("close-scoreboard-button")
 const personalButton = document.getElementById("personal-button")
 const globalButton = document.getElementById("global-button")
+const scoreboardFilterButton = document.getElementById("scoreboard-filter-button")
 
 const gameEndModal = document.getElementById("game-end-modal")
 const saveScoreButton = document.getElementById("save-score-button")
@@ -187,6 +188,8 @@ globalButton.addEventListener("click", function() {
   personalButton.classList.remove("selected-scoreboard-type")
 })
 
+scoreboardFilterButton.addEventListener("click", loadScoreData)
+
 function startGame() {
   clearInterval(timerInterval)
   counter = 0
@@ -281,18 +284,33 @@ function sendScoreData(username) {
 }
 
 function updateScoreboard(scores) {
-  var scoreboardListContainer = document.getElementById("scoreboard-list-container")
-  scoreboardListContainer.innerHTML = "" // clear current scoreboard
+  // store filter info
+  var selectedScoreboardTime = document.getElementById("selected-scoreboard-time").value
+  var selectedScoreboardDifficulty = document.getElementById("selected-scoreboard-difficulty").value
 
-  scores.forEach((game, index) => {
-    // Use compiled scoreboard row entry template
-    var scoreboardRowHTML = window.templates.scoreboardRowEntry({
+  // clear current scoreboard
+  var scoreboardListContainer = document.getElementById("scoreboard-list-container")
+  scoreboardListContainer.innerHTML = "" 
+
+  // track place counter
+  place = 1;
+
+  // populate scoreboard
+  scores.forEach((game) => {
+    
+    // Add relevant games only
+    if (game.difficulty === selectedScoreboardDifficulty && game.time.toString() === selectedScoreboardTime)
+    {
+      var scoreboardRowHTML = window.templates.scoreboardRowEntry({
       username: game.username,
       score: game.score,
-      place: index + 1
-    })
+      place: place
+      })
+      place++
 
-    scoreboardListContainer.insertAdjacentHTML("beforeend", scoreboardRowHTML)
+      scoreboardListContainer.insertAdjacentHTML("beforeend", scoreboardRowHTML)
+    }
+
   })
 }
 
